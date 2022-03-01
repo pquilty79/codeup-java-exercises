@@ -1,4 +1,6 @@
+
 package main;
+
 
 public class main {
     public static void main(String[] args) {
@@ -18,7 +20,7 @@ public class main {
 //        System.out.println(myNumber);
         // both work because int is a shorter version of long (or still work as a long) while floats are stored differently
 //        float myNumber = (float) 3.14;
-        // considered a double and had to be cast as a float
+        // considered a double and had to be cast as a float or put an f at the end
 //        int x = 5;
 //        System.out.println(x++);
 //        System.out.println(x);
@@ -56,7 +58,7 @@ public class main {
 //        System.out.println(x /= y);
 //        System.out.println(y -= x);
 //        int x = 2147483648;
-// interger value too large
+// integer value too large
 
 
 
