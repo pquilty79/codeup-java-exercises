@@ -63,7 +63,7 @@ public class ControlFlowExercises {
             System.out.print("Enter an integer: ");
             int input = scanner.nextInt();
             System.out.println("number | squared | cubed");
-            System.out.println("______ | _______ | _____");
+            System.out.println("------ | ------- | -----");
             for (int i = 1; i <= input; i++) {
                 int squared = (int) Math.pow(i, 2.0);
                 int cubed = (int) Math.pow(i, 3.0);
