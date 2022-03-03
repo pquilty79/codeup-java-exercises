@@ -1,5 +1,3 @@
-package main;
-
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -9,7 +7,7 @@ public class Bob {
         String answer;
         do {
             System.out.println("Say something to Bob");
-            String response = scanner.nextLine();
+            String response = scanner.nextLine().trim();
             if (response.endsWith("?")) {
                 System.out.println("Bob replies: 'Sure'");
             } else if (response.endsWith("!")) {
