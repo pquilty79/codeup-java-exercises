@@ -3,8 +3,14 @@ import java.util.Scanner;
 
 public class HighLow {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         if(counter(1)) {
             System.out.println("Game Over");
+            System.out.println("Would you like to play again? Y/N");
+            String answer = scanner.next().toLowerCase();
+            if(answer.equals("y")){
+                counter(1);
+            }
         }
     }
     public static boolean counter(int guesses) {
