@@ -1,17 +1,18 @@
+import java.util.Objects;
 import java.util.Scanner;
 
 
 public class HighLow {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        if(counter(1)) {
-            System.out.println("Game Over");
-            System.out.println("Would you like to play again? Y/N");
-            String answer = scanner.next().toLowerCase();
-            if(answer.equals("y")){
-                counter(1);
+        String answer = null;
+        do {
+            if (counter(1)) {
+                System.out.println("Game Over");
+                System.out.println("Would you like to play again? Y/N");
+                answer = scanner.next().toLowerCase();
             }
-        }
+        } while (Objects.requireNonNull(answer).startsWith("y"));
     }
     public static boolean counter(int guesses) {
         int random = (int) Math.ceil(Math.random() * 100);
@@ -22,6 +23,7 @@ public class HighLow {
         try {
             if (Integer.parseInt(guess) == random) {
                 System.out.println("GOOD GUESS!");
+                System.out.println("YOU WIN!");
                 guesses = 10;
             } else if (Integer.parseInt(guess) > random) {
                 System.out.println("LOWER");
