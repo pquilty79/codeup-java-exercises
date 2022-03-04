@@ -37,6 +37,8 @@ public class HighLow {
             }
         } catch (NumberFormatException e) {
             System.out.println(guess + " is not a valid input");
+            guesses++;
+            System.out.printf("Guess %d of 10%n", guesses);
             }
         }
         return true;

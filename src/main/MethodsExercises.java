@@ -66,7 +66,7 @@ public class MethodsExercises {
             int fact = 1;
             if (userInput >= 1 && userInput <= 15) {
             for (int i = 1; i <= userInput; i++) {
-                    fact = fact * i;
+                    fact *= i;
                 }
                 System.out.println(userInput + "! is: " + fact);
             } else {
