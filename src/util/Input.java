@@ -13,7 +13,7 @@ public class Input {
 
 
     public String getString() {
-        System.out.println("Please enter a string");
+//        System.out.println("Please enter a string");
         return scanner.nextLine().trim();
     }
 
