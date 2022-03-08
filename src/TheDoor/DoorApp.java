@@ -11,7 +11,6 @@ public class DoorApp {
         System.out.println("Enter your name:\n");
         String name = input.getString();
         Player player = new Player(name);
-        player.setHealth(100);
         story.introduction(player);
     }
 }

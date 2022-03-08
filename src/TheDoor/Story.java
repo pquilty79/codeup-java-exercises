@@ -2,6 +2,8 @@ package TheDoor;
 
 import util.Input;
 
+import java.sql.SQLOutput;
+
 public class Story {
     public void introduction(Player player) {
         Input input = new Input();
@@ -23,7 +25,7 @@ public class Story {
         }
     }
 
-    public static void restart(Player player) {
+    private static void restart(Player player) {
         Input input = new Input();
         String restart = "You awake on the basement floor at the foot of the staircase. You appear to be unharmed, as if nothing happened.\n";
         System.out.println(restart);
@@ -34,7 +36,7 @@ public class Story {
 
     }
 
-    public static void chapterOne(Player player) {
+    private static void chapterOne(Player player) {
         Input input = new Input();
         String entrance = "The doorknob turns easily enough, but the door is so wide you have to wedge yourself around it just to squeeze\n" +
                 "between it and the wall. As soon as you on the other side, it slams shut, forcing you to stumble forward and fall flat.\n" +
@@ -56,20 +58,21 @@ public class Story {
     }
 
 
-    public static void chapterTwo(Player player) {
+    private static void chapterTwo(Player player) {
         Input input = new Input();
         System.out.println("Enter the number of your next action: 1) Move ahead 2) Check your pockets 3) Call out for help\n");
-        int response = input.getInt(0, 3);
+        int response = input.getInt(1, 3);
         if(response == 1) {
             chapterThree(player);
         } else if (response == 2) {
             System.out.println("You check you pockets for anything useful and find only you car keys.");
             if(input.yesNo("Would you like to equip our keys as a weapon?")){
-                player.equip(Weapon.keys);
+//                player.setWeapon(String.valueOf(Weapon.keys));
                 System.out.println("You grasp your car keys in your fist, with the keys sticking through your fingers.\n" +
                         "If there is trouble ahead, you hope you are ready");
                 chapterThree(player);
             }  else {
+//                player.setWeapon(String.valueOf(Weapon.fist));
                 chapterThree(player);
             }
         } else if (response == 3){
@@ -82,7 +85,30 @@ public class Story {
             restart(player);
         }
     }
-    public static void chapterThree(Player player) {
+    private static void chapterThree(Player player) {
+        Input input = new Input();
+        System.out.println("You continue down the mysterious corridor. Around the next you see an elderly man sitting on a stool.\n" +
+                "There are chains around his ankles which attach to the cave wall. As you approach you are horrified to see\n" +
+                "that his eyes are pinned open and his hands have been removed. The stubs of his arms bare large stitches oozing \n" +
+                "with blood and puss. 'The master knows you are here' he says as you creep closer. 'There is only one way out.'\n" +
+                "Enter the number of your next action: 1) Ask about the master 2) Ask where you are 3) Ignore him and walk away\n" +
+                "4) Ask about the way out 5) Attack");
+        int response = input.getInt(1, 5);
+        if(response == 1) {
+            System.out.println("We are all his slaves; ultimately, so is he.");
+        } else if (response == 2) {
+            System.out.println("Beyond the world, beyond time, in the master's realm");
+        } else if (response == 3) {
+            chapterFour(player);
+        } else if (response == 4) {
+            System.out.println("Death");
+        } else if (response == 5) {
+            String currentWeapon = player.getWeapon();
+//            System.out.printf("Frustrated and fearful, you swing at the old man, doing %d damage", Weapon.getDamage(currentWeapon));
+        }
+
+    }
+    private static void chapterFour(Player player) {
 
     }
 
