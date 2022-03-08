@@ -25,15 +25,16 @@ public class Input {
 
 
     public int getInt(int min, int max) {
-        System.out.printf("Enter an integer between %d and %d:\n", min, max);
         String response = scanner.nextLine().trim();
         try {
-            if (Integer.parseInt(response) > max) {
-                System.out.printf(response + " is greater than the maximum input of %d\n", max);
-                response = scanner.nextLine().trim();
-            } else if (Integer.parseInt(response) < min) {
-                System.out.printf(response + " is less than the minimum input of %d\n", min);
-                response = scanner.nextLine().trim();
+            while(Integer.parseInt(response) > max || Integer.parseInt(response) < min  ) {
+                if (Integer.parseInt(response) > max) {
+                    System.out.printf(response + " is greater than the maximum input of %d\n", max);
+                    response = scanner.nextLine().trim();
+                } else if (Integer.parseInt(response) < min) {
+                    System.out.printf(response + " is less than the minimum input of %d\n", min);
+                    response = scanner.nextLine().trim();
+                }
             }
         } catch (NumberFormatException e) {
             System.out.println(response + " is not a valid input\n");
@@ -43,7 +44,7 @@ public class Input {
     }
 
     public int getInt() {
-        System.out.print("Enter an integer:\n");
+//        System.out.print("Enter an integer:\n");
         String response = scanner.nextLine().trim();
         try {
             Integer.parseInt(response);
@@ -58,12 +59,14 @@ public class Input {
         System.out.printf("Enter a double between %f and %f:\n", min, max);
         String response = scanner.nextLine().trim();
         try {
-            if (Double.parseDouble(response) > max) {
-                System.out.printf(response + " is greater than the maximum input of %f\n", max);
-                response = scanner.nextLine().trim();
-            } else if (Double.parseDouble(response) < min) {
-                System.out.printf(response + " is less than the minimum input of %f\n", min);
-                response = scanner.nextLine().trim();
+            while(Double.parseDouble(response) > max || Double.parseDouble(response) < min  ) {
+                if (Double.parseDouble(response) > max) {
+                    System.out.printf(response + " is greater than the maximum input of %f\n", max);
+                    response = scanner.nextLine().trim();
+                } else if (Double.parseDouble(response) < min) {
+                    System.out.printf(response + " is less than the minimum input of %f\n", min);
+                    response = scanner.nextLine().trim();
+                }
             }
         } catch (NumberFormatException e) {
             System.out.println(response + " is not a valid input\n");
@@ -82,6 +85,14 @@ public class Input {
             response = scanner.nextLine().trim();
         }
         return Double.parseDouble(response);
+    }
+    // Doc Rob example
+    public int promptForInteger(String prompt) {
+        System.out.printf("%s", prompt);
+        int result = scanner.nextInt();
+        // get the newline out of the buffer!
+        scanner.nextLine();
+        return result;
     }
 
 

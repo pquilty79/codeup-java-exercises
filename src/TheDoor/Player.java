@@ -18,12 +18,9 @@ public class Player {
     public void setHealth(int health) {
         this.health = health;
     }
-    private String weapon;
-    public String getWeapon() {
-        return  weapon;
-    }
-    public void setWeapon(String weapon) {
-        this.weapon = weapon;
+
+    public void equip(Weapon weapon) {
+
     }
 
 
