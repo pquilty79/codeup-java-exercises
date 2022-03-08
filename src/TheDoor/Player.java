@@ -2,15 +2,30 @@ package TheDoor;
 
 public class Player {
     private final String name;
-    private String weapon;
+    private static String weapon;
     private int health;
+    private static int damage;
 
     public String getWeapon() {
         return weapon;
     }
 
     public void setWeapon(String weapon) {
-        this.weapon = weapon;
+        Player.weapon = weapon;
+        System.out.printf("You equip %s\n", weapon);
+        setDamage(weapon);
+    }
+
+    public int getDamage() {
+        return Player.damage;
+    }
+
+    public void setDamage(String weapon) {
+        if (weapon.equals("fist")){
+            Player.damage = 2;
+        } else if(weapon.equals("keys")) {
+            Player.damage = 4;
+        }
     }
 
     public String getName() {
@@ -20,6 +35,8 @@ public class Player {
     public Player(String name) {
         this.name = name;
         health = 100;
+        weapon = "fist";
+        damage = 2;
     }
 
 
@@ -31,25 +48,7 @@ public class Player {
         this.health = health;
     }
 
-//public class Weapon {
-//    static Weapon fist = new Weapon(2);
-//    static Weapon keys = new Weapon(4);
-//    static Weapon poker = new Weapon(10);
-//    static Weapon chair = new Weapon(9);
-//    static Weapon chain = new Weapon(8);
-//    static Weapon knife = new Weapon(10);
-//    static Weapon kick = new Weapon(5);
-//
-//    private static int damage;
-//    public Weapon(int damage) {
-//        Weapon.damage = damage;
-//    }
-//
-//
-//    public static int getDamage(String weapon) {
-//        return Weapon.damage;
-//    }
-//}
+
 
 
 }

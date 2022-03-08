@@ -10,7 +10,7 @@ public class Rectangle {
     }
 
     public double getPerimeter(){
-        return (2 * Rectangle.width) + (2 * Rectangle.length);
+        return 2 * (Rectangle.width + Rectangle.length);
     }
     public double getArea(){
         return Rectangle.width * Rectangle.length;

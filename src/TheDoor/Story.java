@@ -2,7 +2,6 @@ package TheDoor;
 
 import util.Input;
 
-import java.sql.SQLOutput;
 
 public class Story {
     public void introduction(Player player) {
@@ -18,7 +17,19 @@ public class Story {
                 "You head into the basement down a surprisingly long staircase that rickets each step you take.\n" +
                 "When you reach the bottom, a large steel door blocks the entrance\n";
         System.out.println(introduction);
-        if (input.yesNo("Would you like to open the door?")) {
+        if (input.yesNo("Would you like to open the door?\n" +
+                "            __________\n" +
+                "           |  __  __  |\n" +
+                "           | |  ||  | |\n" +
+                "           | |  ||  | |\n" +
+                "           | |__||__| |\n" +
+                "           |  __  __()|\n" +
+                "           | |  ||  | |\n" +
+                "           | |  ||  | |\n" +
+                "           | |  ||  | |\n" +
+                "           | |  ||  | |\n" +
+                "           | |__||__| |\n" +
+                "           |__________|\n")) {
             chapterOne(player);
         } else {
             System.out.println("In fear, you swiftly exit the house, get in your car, and drive away.\n Ted Leviathan's phone number is disconnected when you try to follow up.\n For the rest of your life you wonder 'what if?'");
@@ -32,7 +43,7 @@ public class Story {
         while (input.yesNo("Would you like to open the door?")) {
             chapterOne(player);
         }
-        System.out.println("In fear, you swiftly exit the house, get in your car, and drive away.\n For the rest of your life you wonder 'what if?'");
+        System.out.println("In fear, you swiftly exit the house, get in your car, and drive away.\n For the rest of your life you wonder what really happened.'");
 
     }
 
@@ -66,19 +77,41 @@ public class Story {
             chapterThree(player);
         } else if (response == 2) {
             System.out.println("You check you pockets for anything useful and find only you car keys.");
-            if(input.yesNo("Would you like to equip our keys as a weapon?")){
-//                player.setWeapon(String.valueOf(Weapon.keys));
+            if(input.yesNo("Would you like to equip your keys as a weapon?")){
+                player.setWeapon("keys");
                 System.out.println("You grasp your car keys in your fist, with the keys sticking through your fingers.\n" +
                         "If there is trouble ahead, you hope you are ready");
                 chapterThree(player);
             }  else {
-//                player.setWeapon(String.valueOf(Weapon.fist));
                 chapterThree(player);
             }
         } else if (response == 3){
             System.out.println("You shout several times. 'Is there anyone here? Help!'\n" +
+                    "\n" +
+                            "      /^\\      /^\\\n" +
+                            "      |  \\    /  |\n" +
+                            "      ||\\ \\../ /||\n" +
+                            "      )'        `(\n" +
+                            "     ,;`w,    ,w';,\n" +
+                            "     ;,  ) __ (  ,;\n" +
+                            "      ;  \\(\\/)/  ;;\n" +
+                            "     ;|  |vwwv|    ``-...\n" +
+                            "      ;  `lwwl'   ;      ```''-.\n" +
+                            "     ;| ; `\"\"' ; ;              `.\n" +
+                            "      ;         ,   ,          , |\n" +
+                            "      '  ;      ;   l    .     | |\n" +
+                            "      ;    ,  ,    |,-,._|      \\;\n" +
+                            "       ;  ; `' ;   '    \\ `\\     \\;\n" +
+                            "       |  |    |  |     |   |    |;\n" +
+                            "       |  ;    ;  |      \\   \\   (;\n" +
+                            "       | |      | l       | | \\  |\n" +
+                            "       | |      | |       | |  ) |\n" +
+                            "       | |      | ;       | |  | |\n" +
+                            "       ; ,      : ,      ,_.'  | |\n" +
+                            "      :__'      | |           ,_.'\n" +
+                            "               `--'\n" +
                     "You hear in the distance what the screech of a metal latch followed by the sound of barking dogs\n" +
-                    "In seconds two huge black hounds with red eyes and open foaming jaws round the corner and pounce on you.\n" +
+                    "In seconds three huge black hounds with red eyes and open foaming jaws round the corner and pounce on you.\n" +
                     "Before you can fight back one tears out your throat. Blood spurts out. You helplessly clutch the wound as they continue to rip you apart.\n" +
                     "Out of the darkness a voice rasps: 'There is only one way out'\n" +
                     "Your last sight is of jaws closing over your eyes \n");
@@ -96,19 +129,53 @@ public class Story {
         int response = input.getInt(1, 5);
         if(response == 1) {
             System.out.println("We are all his slaves; ultimately, so is he.");
+            chapterThreePointFive(player);
         } else if (response == 2) {
             System.out.println("Beyond the world, beyond time, in the master's realm");
+            chapterThreePointFive(player);
         } else if (response == 3) {
             chapterFour(player);
         } else if (response == 4) {
-            System.out.println("Death");
+            System.out.println("Death, the old man rasps");
+            chapterThreePointFive(player);
         } else if (response == 5) {
-            String currentWeapon = player.getWeapon();
-//            System.out.printf("Frustrated and fearful, you swing at the old man, doing %d damage", Weapon.getDamage(currentWeapon));
+            System.out.printf("Frustrated and fearful, you swing at the old man, doing %d damage\n", player.getDamage());
+            System.out.println("The old man falls off his stool and howls. As he hits the ground his chain pull a lever in the wall.\n" +
+                    "The ground under you drops open and fall into a pit of fire below. You scream in agony as your flesh burns and\n" +
+                    "your lungs fill with smoke before you succumb. Above the old man scoffs, 'There is only one way out'.");
+            restart(player);
         }
-
     }
+    private static void chapterThreePointFive(Player player) {
+        Input input = new Input();
+        System.out.println("Enter the number of your next action: 1) Ask about the master 2) Ask where you are 3) Ignore him and walk away\n" +
+                "4) Ask about the way out 5) Attack");
+        int response = input.getInt(1, 5);
+        if(response == 1) {
+            System.out.println("He scoffs: 'So many questions from the doomed...'");
+            chapterThreePointFive(player);
+        } else if (response == 2) {
+            System.out.println("He scoffs: 'So many questions from the doomed...'");
+            chapterThreePointFive(player);
+        } else if (response == 3) {
+            chapterFour(player);
+        } else if (response == 4) {
+            System.out.println("He scoffs: 'So many questions from the doomed...'");
+            chapterThreePointFive(player);
+        } else if (response == 5) {
+            System.out.printf("Frustrated and fearful, you swing at the old man, doing %d damage\n", player.getDamage());
+            System.out.println("The old man falls off his stool and howls. As he hits the ground his chain pull a lever in the wall.\n" +
+                    "The ground under you drops open and you fall into a pit of fire below. You scream in agony as your flesh burns and\n" +
+                    "your lungs fill with smoke before you succumb. Above the old man repeats, 'There is only one way out'.");
+            restart(player);
+        }
+    }
+
+
     private static void chapterFour(Player player) {
+        Input input = new Input();
+        Enemies enemy = Enemies.getRandomEnemy();
+        System.out.printf("As you turn the next corner your get attacked by a %s", enemy.getName());
 
     }
 
