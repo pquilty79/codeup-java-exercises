@@ -17,7 +17,7 @@ public class Story {
                 "You head into the basement down a surprisingly long staircase that rickets each step you take.\n" +
                 "When you reach the bottom, a large steel door blocks the entrance\n";
         System.out.println(introduction);
-        if (input.yesNo("Would you like to open the door?\n" +
+        if (input.yesNo(
                 "            __________\n" +
                 "           |  __  __  |\n" +
                 "           | |  ||  | |\n" +
@@ -29,7 +29,8 @@ public class Story {
                 "           | |  ||  | |\n" +
                 "           | |  ||  | |\n" +
                 "           | |__||__| |\n" +
-                "           |__________|\n")) {
+                "           |__________|\n" +
+                "Would you like to open the door?\n")) {
             chapterOne(player);
         } else {
             System.out.println("In fear, you swiftly exit the house, get in your car, and drive away.\n Ted Leviathan's phone number is disconnected when you try to follow up.\n For the rest of your life you wonder 'what if?'");
@@ -40,7 +41,20 @@ public class Story {
         Input input = new Input();
         String restart = "You awake on the basement floor at the foot of the staircase. You appear to be unharmed, as if nothing happened.\n";
         System.out.println(restart);
-        while (input.yesNo("Would you like to open the door?")) {
+        while (input.yesNo(
+                 "            __________\n" +
+                        "           |  __  __  |\n" +
+                        "           | |  ||  | |\n" +
+                        "           | |  ||  | |\n" +
+                        "           | |__||__| |\n" +
+                        "           |  __  __()|\n" +
+                        "           | |  ||  | |\n" +
+                        "           | |  ||  | |\n" +
+                        "           | |  ||  | |\n" +
+                        "           | |  ||  | |\n" +
+                        "           | |__||__| |\n" +
+                        "           |__________|\n" +
+                "Would you like to open the door?")) {
             chapterOne(player);
         }
         System.out.println("In fear, you swiftly exit the house, get in your car, and drive away.\n For the rest of your life you wonder what really happened.'");
@@ -175,7 +189,10 @@ public class Story {
     private static void chapterFour(Player player) {
         Input input = new Input();
         Enemies enemy = Enemies.getRandomEnemy();
-        System.out.printf("As you turn the next corner your get attacked by a %s", enemy.getName());
+        assert enemy != null;
+        System.out.printf("As you turn the next corner your get attacked by a %s\n", enemy.getName());
+        System.out.println("Defend yourself!");
+        System.out.printf(player.getName() + ": Health: %d  Weapon: %s",player.getHealth(), player.getWeapon());
 
     }
 

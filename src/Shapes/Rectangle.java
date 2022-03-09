@@ -1,19 +1,30 @@
 package Shapes;
 
-public class Rectangle {
-    protected static double length;
-    protected static double width;
+import java.lang.reflect.MalformedParametersException;
 
-    public Rectangle(double length, double width) {
-        Rectangle.length = length;
-        Rectangle.width = width;
+public class Rectangle extends Quadrilateral implements Measurable{
+
+    public Rectangle(int length, int width) {
+        super(length, width);
     }
 
-    public double getPerimeter(){
-        return 2 * (Rectangle.width + Rectangle.length);
-    }
-    public double getArea(){
-        return Rectangle.width * Rectangle.length;
+    @Override
+    public double getPerimeter() {
+        return 2 * (this.width + this.length);
     }
 
+    @Override
+    public double getArea() {
+        return this.width * this.length;
+    }
+
+    @Override
+    public void setWidth(int width) {
+
+    }
+
+    @Override
+    public void setLength(int length) {
+
+    }
 }

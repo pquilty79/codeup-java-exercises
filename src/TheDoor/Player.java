@@ -5,6 +5,14 @@ public class Player {
     private static String weapon;
     private int health;
     private static int damage;
+    private final int hitChance;
+
+
+
+
+    public int getHitChance() {
+        return hitChance;
+    }
 
     public String getWeapon() {
         return weapon;
@@ -37,6 +45,7 @@ public class Player {
         health = 100;
         weapon = "fist";
         damage = 2;
+        hitChance = 10;
     }
 
 
