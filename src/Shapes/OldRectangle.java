@@ -1,10 +1,10 @@
 package Shapes;
 
-public class oldRectangle {
+public class OldRectangle {
     protected double length;
     protected double width;
 
-    public oldRectangle(double length, double width) {
+    public OldRectangle(double length, double width) {
         this.length = length;
         this.width = width;
     }

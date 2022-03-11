@@ -1,7 +1,7 @@
 package Shapes;
 
-public class oldSquare extends oldRectangle {
-    public oldSquare(double side) {
+public class OldSquare extends OldRectangle {
+    public OldSquare(double side) {
         super(side, side);
     }
     public double getPerimeter(){

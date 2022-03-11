@@ -21,7 +21,7 @@ public class Square extends Quadrilateral implements Measurable{
     }
 
     @Override
-    protected void setLength(int length) {
+    protected void setLength(int side) {
 
     }
 }
