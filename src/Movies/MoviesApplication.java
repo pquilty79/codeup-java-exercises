@@ -21,7 +21,8 @@ public class MoviesApplication {
                 "3 - view movies in the drama category\n" +
                 "4 - view movies in the horror category\n" +
                 "5 - view movies in the scifi category\n" +
-                "6 - add a movie" +
+                "6 - view movies in the comedy category\n" +
+                "7 - add a movie\n" +
                 "Enter your choice:");
         int choice = input.getInt(0, 7);
         while (choice != 0 ) {
@@ -77,7 +78,8 @@ public class MoviesApplication {
                         "3 - view movies in the drama category\n" +
                         "4 - view movies in the horror category\n" +
                         "5 - view movies in the scifi category\n" +
-                        "6 - add a movie" +
+                        "6 - view movies in the comedy category\n" +
+                        "7 - add a movie\n" +
                         "Enter your choice:");
                 choice = input.getInt(0, 6);
             }
