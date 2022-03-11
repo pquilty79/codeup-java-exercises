@@ -29,7 +29,7 @@ public class GradesApplication {
         students.put("winterstorm", Sean);
         System.out.println("Welcome!\n");
         askAboutStudents(students);
-//        getClassAverage(students);
+
 
     }
 
@@ -54,10 +54,6 @@ public class GradesApplication {
         } while (input.yesNo("Would you like to see another student?\n"));
         System.out.println("Goodbye, and have a wonderful day!");
     }
-    public static void getClassAverage(HashMap<String, Students> students) {
-        for (Students student : students.values()) {
-            System.out.println(student.getGradeAverage(student.getGrades()));
-        }
-    }
+
 
 }
