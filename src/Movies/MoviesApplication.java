@@ -5,11 +5,25 @@ import java.util.Arrays;
 
 import static Movies.MoviesArray.findAll;
 public class MoviesApplication {
-    public static Movie[] addMovie(Movie[] array, String movieName, String movieCategory) {
+    public static Movie[] addMovie(Movie[] array) {
+        Input input = new Input();
+        System.out.println("Enter the name of the new movie");
+        String movieName = input.getString();
+        System.out.println("Enter the category of the new movie");
+        String movieCategory = input.getString();
+        System.out.println("Movie has been added");
         Movie newMovie = new Movie(movieName, movieCategory);
         Movie[] newerArray = Arrays.copyOf(array, array.length + 1);
         newerArray[newerArray.length - 1] = newMovie;
         return newerArray;
+    }
+
+    public static void displayByCategory(Movie[] array, String category) {
+        for (Movie movie : array) {
+            if(movie.getCategory().equals(category)) {
+                System.out.println(movie.getName() + " -- " + movie.getCategory());
+            }
+        }  displayMovies(array);
     }
 
     public static void displayMovies(Movie[] newArray) {
@@ -31,43 +45,17 @@ public class MoviesApplication {
                     System.out.println(movie.getName() + " -- " + movie.getCategory());
                 }  displayMovies(newArray);
             } else if (choice == 2) {
-                for (Movie movie : newArray) {
-                    if(movie.getCategory().equals("animated")) {
-                        System.out.println(movie.getName() + " -- " + movie.getCategory());
-                    }
-                }  displayMovies(newArray);
+                displayByCategory(newArray, "animated");
             } else if (choice == 3) {
-                for (Movie movie : newArray) {
-                    if(movie.getCategory().equals("drama")) {
-                        System.out.println(movie.getName() + " -- " + movie.getCategory());
-                    }
-                }  displayMovies(newArray);
+                displayByCategory(newArray, "drama");
             } else if (choice == 4) {
-                for (Movie movie : newArray) {
-                    if(movie.getCategory().equals("horror")) {
-                        System.out.println(movie.getName() + " -- " + movie.getCategory());
-                    }
-                }  displayMovies(newArray);
+                displayByCategory(newArray, "horror");
             } else if (choice == 5) {
-                for (Movie movie : newArray) {
-                    if(movie.getCategory().equals("scifi")) {
-                        System.out.println(movie.getName() + " -- " + movie.getCategory());
-                    }
-                }  displayMovies(newArray);
+                displayByCategory(newArray, "scifi");
             } else if (choice == 6) {
-                for (Movie movie : newArray) {
-                    if (movie.getCategory().equals("comedy")) {
-                        System.out.println(movie.getName() + " -- " + movie.getCategory());
-                    }
-                }
-                displayMovies(newArray);
+                displayByCategory(newArray, "comedy");
             } else if (choice == 7) {
-                System.out.println("Enter the name of the new movie");
-                String movieName = input.getString();
-                System.out.println("Enter the category of the new movie");
-                String movieCategory = input.getString();
-                System.out.println("Movie has been added");
-                newArray = addMovie(newArray, movieName, movieCategory);
+                newArray = addMovie(newArray);
                 for (Movie movie : newArray) {
                     System.out.println(movie.getName() + " -- " + movie.getCategory());
                 }
