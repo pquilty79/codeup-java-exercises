@@ -1,6 +1,5 @@
 package Grades;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class Students {
@@ -10,11 +9,11 @@ public class Students {
         return grades;
     }
 
-    private static ArrayList<Integer> grades;
+    private ArrayList<Integer> grades;
 
     public Students(String name) {
         this.name = name;
-        grades = new ArrayList<Integer>();
+        this.grades = new ArrayList<>();
     }
     public String getName() {
         return name;
@@ -37,7 +36,8 @@ public class Students {
         Patrick.addGrade(95);
         Patrick.addGrade(100);
         System.out.println(Patrick.getGrades());
-        System.out.println(Patrick.getGradeAverage(grades));
+        System.out.println(Patrick.getGradeAverage(Patrick.getGrades()));
+
 
     }
 }

@@ -71,10 +71,7 @@ public class MoviesApplication {
                         "Enter your choice:");
                 choice = input.getInt(0, 6);
             }
-
         }
-
-
     }
 
     public static void main(String[] args) {
