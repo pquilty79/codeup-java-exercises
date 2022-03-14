@@ -106,10 +106,12 @@ public class Contacts {
         Input input = new Input();
         System.out.println("Enter the name of the contact\n");
         String name = input.getString();
-        System.out.println("Enter the phone number of the contact: (format:xxx-xxx-xxxx)\n");
-        String phoneNumber = input.getString();
-        Contact contact = new Contact(name, phoneNumber);
-        addContact(contact);
+        if (validateContact(name)) {
+            System.out.println("Enter the phone number of the contact: (format:xxx-xxx-xxxx)\n");
+            String phoneNumber = input.getString();
+            Contact contact = new Contact(name, phoneNumber);
+            addContact(contact);
+        }
     }
     //checked and works
     public static void displayAllContacts() throws IOException {
@@ -210,7 +212,24 @@ public class Contacts {
         return input.getInt(1,6);
     }
 
-
+   public static boolean validateContact(String name){
+       try {
+           String directory = "/Users/patrickquilty/IdeaProjects/codeup-java-exercises/src/Contacts/documents/";
+           String filename = "contacts.txt";
+           Path filepath = Paths.get(directory, filename);
+           List<String> contactsList = Files.readAllLines(filepath);
+           for (String contact : contactsList) {
+               if (contact.contains(name)) {
+                   System.out.println("This user already exists");
+                   contactMenu();
+               }
+           }
+       }
+       catch (IOException ex) {
+           System.out.println("Error finding contact");
+       }
+        return true;
+   }
 
 
 }
