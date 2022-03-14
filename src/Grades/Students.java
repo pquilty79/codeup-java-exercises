@@ -40,4 +40,12 @@ public class Students {
 
 
     }
+
+    @Override
+    public String toString() {
+        return "Students{" +
+                "name='" + name + '\'' +
+                ", grades=" + grades +
+                '}';
+    }
 }

@@ -2,6 +2,7 @@ package Grades;
 
 import util.Input;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class GradesApplication {
@@ -40,12 +41,19 @@ public class GradesApplication {
             for (String key : students.keySet()) {
                 System.out.println(key);
             }
+            System.out.println("or type: 'All Students'");
             System.out.println("\nWhat student would you like to see more information on?\n");
             String answer = input.getString();
-            if (students.containsKey(answer)) {
+            if(answer.equals("All Students")) {
+                for (Students student : students.values()) {
+                    System.out.println(student.toString());
+                    System.out.println("Current Average: " + (int)student.getGradeAverage(student.getGrades()));
+                }
+                getClassAverage(students);
+            } else if (students.containsKey(answer)) {
                 Students newStudent = students.get(answer);
                 System.out.println("Name: " + newStudent.getName() + " GitHub Username: " + answer);
-                System.out.println("Grades: " + newStudent.getGrades() + " Current Average: " + newStudent.getGradeAverage(newStudent.getGrades()));
+                System.out.println("Grades: " + newStudent.getGrades() + " Current Average: " + (int)newStudent.getGradeAverage(newStudent.getGrades()));
 
             } else {
                 System.out.printf("Sorry, no student found with the GitHub username of %s\n", answer);
@@ -53,6 +61,23 @@ public class GradesApplication {
 
         } while (input.yesNo("Would you like to see another student?\n"));
         System.out.println("Goodbye, and have a wonderful day!");
+    }
+
+    public static void getClassAverage(HashMap<String, Students> students) {
+        ArrayList<Double> gradesArrayList = new ArrayList<>();
+        for (Students student : students.values()) {
+            gradesArrayList.add(student.getGradeAverage(student.getGrades()));
+        }
+        int average = (int) getGradeAverage(gradesArrayList);
+        System.out.println("Class average: " + average);
+
+    }
+
+    public static double getGradeAverage(ArrayList<Double> grades) {
+        return grades.stream()
+                .mapToDouble(d -> d)
+                .average()
+                .orElse(0.0);
     }
 
 
