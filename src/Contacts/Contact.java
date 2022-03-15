@@ -34,6 +34,12 @@ public class Contact {
 
 
     public Contact(String name, String phoneNumber) {
+        if (name.length() < 4) {
+            throw new IllegalArgumentException("Contact cannot be created because name is too short.");
+        }
+        if (phoneNumber.length() < 8) {
+            throw new IllegalArgumentException("Contact cannot be created because phone number is too short.");
+        }
         this.name = name;
         this.phoneNumber = phoneNumber;
     }
