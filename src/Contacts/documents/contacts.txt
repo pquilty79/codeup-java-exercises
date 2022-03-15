@@ -1,7 +1,5 @@
-Contact name = Patrick Quilty | phone number = 908-906-6711
-Contact name = Fu Bar | phone number = 123-456-7890
-Contact name = Anna Molly | phone number = 210-234-9876
-Contact name = Jo Schmo | phone number = 345-234-2342
-Contact name = Jenn Someone | phone number = 465-123-1231
-Contact name = John Doe | phone number = 210-343-5454
-Contact name = new guy | phone number = 234-2342
+Contact name = Jo Schmo | phone number = 210-293-2322
+Contact name = Patrick W Quilty | phone number = 210-123-2342
+Contact name = Anna Molly | phone number = 210-343-2494
+Contact name = John Doe | phone number = 210-230-9292
+Contact name = Jenn Someone | phone number = 210-230-1421

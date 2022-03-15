@@ -137,7 +137,7 @@ public class ContactActions {
                         String phoneNumber = input.getString();
                         Contact correctedContact = new Contact(name, phoneNumber);
                         newList.add(String.valueOf(correctedContact));
-                        break;
+                        continue;
                     } catch (IllegalArgumentException p) {
                         System.out.println(p.getMessage());
                         editContact();
