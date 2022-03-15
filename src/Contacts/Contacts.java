@@ -19,7 +19,7 @@ public class Contacts {
         while (answer!=6){
             if(answer == 1) {
                 displayAllContacts();
-                if(input.yesNo("Would you like to continue? Y/N\n")) {
+                if(input.yesNo("Would you like to do anything else? Y/N\n")) {
                     answer = contactMenu();
                 }
                 else {
@@ -27,7 +27,7 @@ public class Contacts {
                 }
             } else if (answer == 2) {
                 getContactInfoFromUser();
-                if(input.yesNo("Would you like to continue? Y/N\n")) {
+                if(input.yesNo("Would you like to do anything else? Y/N\n")) {
                     answer = contactMenu();
                 }
                 else {
@@ -35,7 +35,7 @@ public class Contacts {
                 }
             } else if (answer == 3) {
                 displayOneContact();
-                if(input.yesNo("Would you like to continue? Y/N\n")) {
+                if(input.yesNo("Would you like to do anything else? Y/N\n")) {
                     answer =contactMenu();
                 }
                 else {
@@ -43,7 +43,7 @@ public class Contacts {
                 }
             } else if (answer == 4) {
                 deleteContact();
-                if(input.yesNo("Would you like to continue? Y/N\n")) {
+                if(input.yesNo("Would you like to do anything else? Y/N\n")) {
                     answer = contactMenu();
                 }
                 else {
@@ -51,7 +51,7 @@ public class Contacts {
                 }
             } else if (answer == 5) {
                 editContact();
-                if(input.yesNo("Would you like to continue? Y/N\n")) {
+                if(input.yesNo("Would you like to do anything else? Y/N\n")) {
                     answer = contactMenu();
                 }
                 else {
@@ -64,29 +64,29 @@ public class Contacts {
 
     }
 //checked and works
-    public static void getFile() throws IOException {
-
-        try {
-            String directory = "/Users/patrickquilty/IdeaProjects/codeup-java-exercises/src/Contacts/documents/";
-            String filename = "contacts.txt";
-
-            Path dataDirectory = Paths.get(directory);
-            Path dataFile = Paths.get(directory, filename);
-
-
-            if (Files.notExists(dataDirectory)) {
-                Files.createDirectories(dataDirectory);
-            }
-
-            if (!Files.exists(dataFile)) {
-                Files.createFile(dataFile);
-            }
-            System.out.println("Success");
-        } catch (IOException ex) {
-            System.out.println(ex);
-            System.out.println("Oops...resolve exception");
-        }
-    }
+//    public static void getFile() throws IOException {
+//
+//        try {
+//            String directory = "/Users/patrickquilty/IdeaProjects/codeup-java-exercises/src/Contacts/documents/";
+//            String filename = "contacts.txt";
+//
+//            Path dataDirectory = Paths.get(directory);
+//            Path dataFile = Paths.get(directory, filename);
+//
+//
+//            if (Files.notExists(dataDirectory)) {
+//                Files.createDirectories(dataDirectory);
+//            }
+//
+//            if (!Files.exists(dataFile)) {
+//                Files.createFile(dataFile);
+//            }
+//            System.out.println("Success");
+//        } catch (IOException ex) {
+//            System.out.println(ex);
+//            System.out.println("Oops...resolve exception");
+//        }
+//    }
     //checked and works
     public static void addContact(Contact contact) throws IOException {
         try {
@@ -185,19 +185,21 @@ public class Contacts {
         System.out.println("Enter the name of the contact:");
         String name = input.getString();
         List<String> newList = new ArrayList<>();
-        for (String contact : contactsList) {
-            if (contact.contains(name)) {
-                System.out.println("Enter the correct name of the contact\n");
-                name = input.getString();
-                System.out.println("Enter the correct phone number of the contact: (format:xxx-xxx-xxxx)\n");
-                String phoneNumber = input.getString();
-                Contact correctedContact = new Contact(name, phoneNumber);
-                newList.add(String.valueOf(correctedContact));
-                continue;
-            }  newList.add(contact);
-        } Files.write(Paths.get(directory, filename), newList);
+            for (String contact : contactsList) {
+                if (contact.contains(name)) {
+                    System.out.println("Enter the correct name of the contact\n");
+                    name = input.getString();
+                    System.out.println("Enter the correct phone number of the contact: (format:xxx-xxx-xxxx)\n");
+                    String phoneNumber = input.getString();
+                    Contact correctedContact = new Contact(name, phoneNumber);
+                    newList.add(String.valueOf(correctedContact));
+                    break;
+                }
+                newList.add(contact);
+            }
+            Files.write(Paths.get(directory, filename), newList);
+        }
 
-    }
 
     public static int contactMenu(){
         Input input = new Input();

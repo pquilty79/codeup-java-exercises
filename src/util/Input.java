@@ -86,14 +86,31 @@ public class Input {
         }
         return Double.parseDouble(response);
     }
-    // Doc Rob example
-    public int promptForInteger(String prompt) {
-        System.out.printf("%s", prompt);
-        int result = scanner.nextInt();
-        // get the newline out of the buffer!
-        scanner.nextLine();
-        return result;
+
+    public int getBinary() {
+        System.out.println("Enter binary number:\n");
+        String response = scanner.nextLine().trim();
+        try {
+            Integer.parseInt(response, 2);
+        } catch (NumberFormatException e) {
+            System.out.println(response + " is not a valid input\n");
+            response = scanner.nextLine().trim();
+        }
+        return Integer.parseInt(response, 2);
     }
+
+    public int getHex() {
+        System.out.println("Enter a hexidecimal number:\n");
+        String response = scanner.nextLine().trim();
+        try {
+            Integer.parseInt(response, 16);
+        } catch (NumberFormatException e) {
+            System.out.println(response + " is not a valid input\n");
+            response = scanner.nextLine().trim();
+        }
+        return Integer.parseInt(response, 16);
+    }
+
 
 
 
@@ -104,6 +121,7 @@ public class Input {
 //        System.out.println(yesNo());
 //        System.out.println(getDouble(1.0, 10.3));
 //        System.out.println(getDouble());
+
 
     }
 }
