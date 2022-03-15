@@ -19,13 +19,13 @@ public class Input {
 
     public boolean yesNo(String prompt) {
         System.out.printf("%s", prompt);
-        String response = scanner.nextLine().trim().toLowerCase();
+        String response = getString().toLowerCase();
         return response.startsWith("y");
     }
 
 
     public int getInt(int min, int max) {
-        String response = scanner.nextLine().trim();
+        String response = getString();
         try {
             while(Integer.parseInt(response) > max || Integer.parseInt(response) < min  ) {
                 if (Integer.parseInt(response) > max) {
@@ -45,7 +45,7 @@ public class Input {
 
     public int getInt() {
 //        System.out.print("Enter an integer:\n");
-        String response = scanner.nextLine().trim();
+        String response = getString();
         try {
             Integer.parseInt(response);
         } catch (NumberFormatException e) {
@@ -57,7 +57,7 @@ public class Input {
 
     public double getDouble(double min, double max) {
         System.out.printf("Enter a double between %f and %f:\n", min, max);
-        String response = scanner.nextLine().trim();
+        String response = getString();
         try {
             while(Double.parseDouble(response) > max || Double.parseDouble(response) < min  ) {
                 if (Double.parseDouble(response) > max) {
@@ -77,7 +77,7 @@ public class Input {
 
     public double getDouble() {
         System.out.print("Enter a double:\n");
-        String response = scanner.nextLine().trim();
+        String response = getString();
         try {
             Double.parseDouble(response);
         } catch (NumberFormatException e) {
@@ -89,7 +89,7 @@ public class Input {
 
     public int getBinary() {
         System.out.println("Enter binary number:\n");
-        String response = scanner.nextLine().trim();
+        String response = getString();
         try {
             Integer.parseInt(response, 2);
         } catch (NumberFormatException e) {
@@ -101,7 +101,7 @@ public class Input {
 
     public int getHex() {
         System.out.println("Enter a hexidecimal number:\n");
-        String response = scanner.nextLine().trim();
+        String response = getString().toUpperCase();
         try {
             Integer.parseInt(response, 16);
         } catch (NumberFormatException e) {

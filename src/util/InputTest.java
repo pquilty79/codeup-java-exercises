@@ -10,11 +10,11 @@ public class InputTest {
 //        System.out.println(input.getInt());
 //        System.out.println(input.yesNo("Continue?"));
 //        System.out.println(input.yesNo("Continue?"));
-//        System.out.println(input.getDouble(1.0, 10.3));
+        System.out.println(input.getDouble(1.0, 10.3));
 //        System.out.println(input.getDouble());
 //        System.out.println(input.yesNo("Continue?"));
 //        System.out.println(input.getBinary());
-        System.out.println(input.getHex());
+//        System.out.println(input.getHex());
         input.close();
     }
 }
