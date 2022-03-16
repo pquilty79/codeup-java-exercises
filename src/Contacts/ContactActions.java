@@ -14,13 +14,14 @@ public class ContactActions {
     //checked and works
     public static void addContact(Contact contact) throws IOException {
         try {
-            String directory = "/Users/patrickquilty/IdeaProjects/codeup-java-exercises/src/Contacts/documents/";
+            String directory = "src/Contacts/documents/";
             String filename = "contacts.txt";
             Path filepath = Paths.get(directory, filename);
             List<String> contactsList = List.of(contact.toString());
             Files.write(filepath, contactsList, StandardOpenOption.APPEND);
             System.out.println("User added");
         } catch (IOException ex) {
+            System.out.println(ex.getMessage());
             System.out.println("Error adding contact");
         }
 
@@ -32,7 +33,7 @@ public class ContactActions {
         try {
             String name = input.getString();
             if (validateContact(name)) {
-                System.out.println("Enter the phone number of the contact: (format:xxx-xxx-xxxx)\n");
+                System.out.println("Enter the phone number of the contact: (enter numbers only)\n");
                 try {
                     String phoneNumber = input.getString();
                     Contact contact = new Contact(name, phoneNumber);
@@ -50,23 +51,24 @@ public class ContactActions {
     //checked and works
     public static void displayAllContacts() throws IOException {
         try {
-            String directory = "/Users/patrickquilty/IdeaProjects/codeup-java-exercises/src/Contacts/documents/";
+            String directory = "src/Contacts/documents/";
             String filename = "contacts.txt";
             Path filepath = Paths.get(directory, filename);
             List<String> displayContacts = Files.readAllLines(filepath);
-            System.out.println("Name | Phone number\n" +
-                    "---------------");
+            System.out.println("   | Name                   | Phone number         |\n" +
+                    "----------------------------------------------------");
             for (int i = 0; i < displayContacts.size(); i += 1) {
-                System.out.println((i + 1) + ": " + displayContacts.get(i));
+                System.out.println(String.format("%-3s", i + 1)  + displayContacts.get(i));
             }
         } catch  (IOException ex) {
+            System.out.println(ex.getMessage());
             System.out.println("Error displaying contacts");
         }
     }
     //checked and works
     public static void deleteContact()throws IOException {
         try {
-            String directory = "/Users/patrickquilty/IdeaProjects/codeup-java-exercises/src/Contacts/documents/";
+            String directory = "src/Contacts/documents/";
             String filename = "contacts.txt";
             Path filepath = Paths.get(directory, filename);
             List<String> contactsList = Files.readAllLines(filepath);
@@ -85,13 +87,14 @@ public class ContactActions {
             Files.write(Paths.get(directory, filename), newList);
 
         } catch (IOException ex) {
+            System.out.println(ex.getMessage());
             System.out.println("Error deleting contact");
         }
     }
     //checked and works
     public static void displayOneContact() throws IOException {
         try {
-            String directory = "/Users/patrickquilty/IdeaProjects/codeup-java-exercises/src/Contacts/documents/";
+            String directory = "src/Contacts/documents/";
             String filename = "contacts.txt";
             Path filepath = Paths.get(directory, filename);
             List<String> contactsList = Files.readAllLines(filepath);
@@ -111,13 +114,14 @@ public class ContactActions {
             }
         }
         catch (IOException ex) {
+            System.out.println(ex.getMessage());
             System.out.println("Error finding contact");
         }
 
     }
 
     public static void editContact() throws IOException {
-        String directory = "/Users/patrickquilty/IdeaProjects/codeup-java-exercises/src/Contacts/documents/";
+        String directory = "src/Contacts/documents/";
         String filename = "contacts.txt";
         Path filepath = Paths.get(directory, filename);
         List<String> contactsList = Files.readAllLines(filepath);
@@ -132,7 +136,7 @@ public class ContactActions {
                 System.out.println("Enter the correct name of the contact\n");
                 try {
                     name = input.getString();
-                    System.out.println("Enter the correct phone number of the contact: (format:xxx-xxx-xxxx)\n");
+                    System.out.println("Enter the correct phone number of the contact: (enter numbers only)\n");
                     try {
                         String phoneNumber = input.getString();
                         Contact correctedContact = new Contact(name, phoneNumber);
@@ -171,7 +175,7 @@ public class ContactActions {
 
     public static boolean validateContact(String name){
         try {
-            String directory = "/Users/patrickquilty/IdeaProjects/codeup-java-exercises/src/Contacts/documents/";
+            String directory = "src/Contacts/documents/";
             String filename = "contacts.txt";
             Path filepath = Paths.get(directory, filename);
             List<String> contactsList = Files.readAllLines(filepath);
@@ -183,6 +187,7 @@ public class ContactActions {
             }
         }
         catch (IOException ex) {
+            System.out.println(ex.getMessage());
             System.out.println("Error finding contact");
         }
         return true;

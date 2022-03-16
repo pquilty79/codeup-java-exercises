@@ -7,9 +7,8 @@ public class Contact {
 
     @Override
     public String toString() {
-        return "Contact " +
-                "name = " + name +
-                " | phone number = " + phoneNumber;
+        return "| " + String.format("%-22.22s", name) +
+                " | " + String.format("%-21.21s",phoneNumber) + "|";
     }
 
     private String phoneNumber;
@@ -37,11 +36,28 @@ public class Contact {
         if (name.length() < 4) {
             throw new IllegalArgumentException("Contact cannot be created because name is too short.");
         }
-        if (phoneNumber.length() < 8) {
+        if (phoneNumber.length() < 7) {
             throw new IllegalArgumentException("Contact cannot be created because phone number is too short.");
+        } else if (phoneNumber.length() == 7) {
+            this.phoneNumber = phoneNumber.replaceFirst("(\\d{3})(\\d+)", "$1-$2");
+        } else if (phoneNumber.length() == 10) {
+            this.phoneNumber = phoneNumber.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "$1-$2-$3");
+        } else if (phoneNumber.length() == 11) {
+            this.phoneNumber = phoneNumber.replaceFirst("(\\d{1})(\\d{3})(\\d{3})(\\d+)", "+$1 $2-$3-$4");
+        } else if (phoneNumber.length() == 12) {
+            this.phoneNumber = phoneNumber.replaceFirst("(\\d{2})(\\d{3})(\\d{3})(\\d+)", "+$1 $2-$3-$4");
+        } else if (phoneNumber.length() == 13) {
+            this.phoneNumber = phoneNumber.replaceFirst("(\\d{3})(\\d{3})(\\d{3})(\\d+)", "+$1 $2-$3-$4");
+        } else if (phoneNumber.length() == 14) {
+            this.phoneNumber = phoneNumber.replaceFirst("(\\d{1})(\\d{3})(\\d{3})(\\d{3})(\\d+)", "+$1-$2 $3-$4-$5");
+        } else if (phoneNumber.length() == 15) {
+            this.phoneNumber = phoneNumber.replaceFirst("(\\d{2})(\\d{3})(\\d{3})(\\d{3})(\\d+)", "+$1-$2 $3-$4-$5");
+        } else if (phoneNumber.length() == 16) {
+                this.phoneNumber = phoneNumber.replaceFirst("(\\d{2})(\\d{4})(\\d{3})(\\d{3})(\\d+)", "+$1-$2 $3-$4-$5");
+        } else {
+            throw new IllegalArgumentException("Contact cannot be created because phone is too long.");
         }
         this.name = name;
-        this.phoneNumber = phoneNumber;
     }
 
 
