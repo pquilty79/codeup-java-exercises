@@ -12,7 +12,7 @@ import java.util.List;
 public class ContactActions {
 
     //checked and works
-    public static void addContact(Contact contact) throws IOException {
+    public static void addContact(Contact contact)  {
         try {
             String directory = "src/Contacts/documents/";
             String filename = "contacts.txt";
@@ -54,7 +54,7 @@ public class ContactActions {
         }
     }
     //checked and works
-    public static void displayAllContacts() throws IOException {
+    public static void displayAllContacts() {
         try {
             String directory = "src/Contacts/documents/";
             String filename = "contacts.txt";
@@ -71,7 +71,7 @@ public class ContactActions {
         }
     }
     //checked and works
-    public static void deleteContact()throws IOException {
+    public static void deleteContact() {
         try {
             String directory = "src/Contacts/documents/";
             String filename = "contacts.txt";
@@ -97,7 +97,7 @@ public class ContactActions {
         }
     }
     //checked and works
-    public static void displayOneContact() throws IOException {
+    public static void displayOneContact() {
         try {
             String directory = "src/Contacts/documents/";
             String filename = "contacts.txt";
@@ -141,10 +141,8 @@ public class ContactActions {
                 System.out.println("Enter the correct first name of the contact\n");
                 try {
                     String firstName = input.getString();
-                    firstName = capitalize(firstName);
                     System.out.println("Enter the correct last name of the contact\n");
                     String lastName = input.getString();
-                    lastName = capitalize(lastName);
                     name = firstName + " " + lastName;
                     System.out.println("Enter the correct phone number of the contact: (enter numbers only)\n");
                     try {
@@ -203,14 +201,14 @@ public class ContactActions {
         return true;
     }
 
-    public static String capitalize(String str) {
+    public static String capitalize(String str) throws IOException {
         if(str == null || str.isEmpty()) {
-            return str;
+            System.out.println("Name input required");
+            getContactInfoFromUser();
         }
-
+        assert str != null;
         return str.substring(0, 1).toUpperCase() + str.substring(1);
     }
-
 
 }
 
