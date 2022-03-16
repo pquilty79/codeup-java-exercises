@@ -9,6 +9,8 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.Integer.parseInt;
+
 public class ContactActions {
 
     //checked and works
@@ -37,10 +39,10 @@ public class ContactActions {
             String lastName = input.getString();
             lastName = capitalize(lastName);
             String name = firstName + " " + lastName;
-            if (validateContact(name)) {
+            if (checkIfContactExists(name)) {
                 System.out.println("Enter the phone number of the contact: (enter numbers only)\n");
                 try {
-                    String phoneNumber = input.getString();
+                    String phoneNumber = String.valueOf(input.getInt());
                     Contact contact = new Contact(name, phoneNumber);
                     addContact(contact);
                 } catch (IllegalArgumentException p) {
@@ -97,7 +99,7 @@ public class ContactActions {
         }
     }
     //checked and works
-    public static void displayOneContact() {
+    public static void searchContacts() {
         try {
             String directory = "src/Contacts/documents/";
             String filename = "contacts.txt";
@@ -146,7 +148,7 @@ public class ContactActions {
                     name = firstName + " " + lastName;
                     System.out.println("Enter the correct phone number of the contact: (enter numbers only)\n");
                     try {
-                        String phoneNumber = input.getString();
+                        String phoneNumber = String.valueOf(input.getInt());
                         Contact correctedContact = new Contact(name, phoneNumber);
                         newList.add(String.valueOf(correctedContact));
                         continue;
@@ -181,7 +183,7 @@ public class ContactActions {
         return input.getInt(1,6);
     }
 
-    public static boolean validateContact(String name){
+    public static boolean checkIfContactExists(String name){
         try {
             String directory = "src/Contacts/documents/";
             String filename = "contacts.txt";

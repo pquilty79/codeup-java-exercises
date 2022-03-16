@@ -26,7 +26,7 @@ public class ContactsApp {
                     answer = 6;
                 }
             } else if (answer == 3) {
-                displayOneContact();
+                searchContacts();
                 if (input.yesNo("Would you like to do anything else? Y/N\n")) {
                     answer = contactMenu();
                 } else {
