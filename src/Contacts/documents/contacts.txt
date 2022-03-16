@@ -5,7 +5,5 @@
 | Jenn Someone           | 210-230-1421         |
 | New Girl               | 210-232-3355         |
 | Thispersonhasareallylo | 123-324-2142         |
-| Another Test           | 245-9384             |
-| Someother Person       | +1 908-906-6710      |
-| person whatever        | +13-248 593-423-2345 |
-| another bloodyone      | +234 958-384-9034    |
+| Patrick Smith          | 234-8584             |
+| Another One            | +1 732-849-5847      |

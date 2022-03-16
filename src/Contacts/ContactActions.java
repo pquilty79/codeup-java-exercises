@@ -29,9 +29,14 @@ public class ContactActions {
     //checked and works
     public static void getContactInfoFromUser() throws IOException {
         Input input = new Input();
-        System.out.println("Enter the name of the contact\n");
+        System.out.println("Enter the first name of the contact\n");
         try {
-            String name = input.getString();
+            String firstName = input.getString();
+            firstName = capitalize(firstName);
+            System.out.println("Enter the last name of the contact\n");
+            String lastName = input.getString();
+            lastName = capitalize(lastName);
+            String name = firstName + " " + lastName;
             if (validateContact(name)) {
                 System.out.println("Enter the phone number of the contact: (enter numbers only)\n");
                 try {
@@ -106,7 +111,7 @@ public class ContactActions {
                 if (contact.toLowerCase().contains(name.toLowerCase())) {
                     finishedForLoop = false;
                     System.out.println(contact);
-                    break;
+//                    break;
                 }
             }
             if(finishedForLoop) {
@@ -133,9 +138,14 @@ public class ContactActions {
         for (String contact : contactsList) {
             if (contact.toLowerCase().contains(name.toLowerCase())) {
                 finishedForLoop = false;
-                System.out.println("Enter the correct name of the contact\n");
+                System.out.println("Enter the correct first name of the contact\n");
                 try {
-                    name = input.getString();
+                    String firstName = input.getString();
+                    firstName = capitalize(firstName);
+                    System.out.println("Enter the correct last name of the contact\n");
+                    String lastName = input.getString();
+                    lastName = capitalize(lastName);
+                    name = firstName + " " + lastName;
                     System.out.println("Enter the correct phone number of the contact: (enter numbers only)\n");
                     try {
                         String phoneNumber = input.getString();
@@ -191,6 +201,14 @@ public class ContactActions {
             System.out.println("Error finding contact");
         }
         return true;
+    }
+
+    public static String capitalize(String str) {
+        if(str == null || str.isEmpty()) {
+            return str;
+        }
+
+        return str.substring(0, 1).toUpperCase() + str.substring(1);
     }
 
 
