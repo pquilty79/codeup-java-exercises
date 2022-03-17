@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static java.lang.Integer.parseInt;
@@ -42,7 +43,8 @@ public class ContactActions {
             if (checkIfContactExists(name)) {
                 System.out.println("Enter the phone number of the contact: (enter numbers only)\n");
                 try {
-                    String phoneNumber = String.valueOf(input.getInt());
+                    String phoneNumber = input.getString();
+                    phoneNumber = phoneNumber.replaceAll("\\D+","");
                     Contact contact = new Contact(name, phoneNumber);
                     addContact(contact);
                 } catch (IllegalArgumentException p) {
@@ -62,6 +64,7 @@ public class ContactActions {
             String filename = "contacts.txt";
             Path filepath = Paths.get(directory, filename);
             List<String> displayContacts = Files.readAllLines(filepath);
+            Collections.sort(displayContacts);
             System.out.println("   | Name                   | Phone number         |\n" +
                     "----------------------------------------------------");
             for (int i = 0; i < displayContacts.size(); i += 1) {
@@ -148,7 +151,8 @@ public class ContactActions {
                     name = firstName + " " + lastName;
                     System.out.println("Enter the correct phone number of the contact: (enter numbers only)\n");
                     try {
-                        String phoneNumber = String.valueOf(input.getInt());
+                        String phoneNumber = input.getString();
+                        phoneNumber = phoneNumber.replaceAll("\\D+","");
                         Contact correctedContact = new Contact(name, phoneNumber);
                         newList.add(String.valueOf(correctedContact));
                         continue;
