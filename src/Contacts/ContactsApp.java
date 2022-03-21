@@ -1,14 +1,14 @@
 package Contacts;
 
 
-import util.Input;
+import util.input;
 import java.io.IOException;
 import static Contacts.ContactActions.*;
 
 
 public class ContactsApp {
     public static void main(String[] args) throws IOException {
-        Input input = new Input();
+        input input = new input();
         int answer = contactMenu();
         while (answer != 6) {
             if (answer == 1) {

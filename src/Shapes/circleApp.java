@@ -1,10 +1,10 @@
 package Shapes;
-import util.Input;
+import util.input;
 
 
 public class circleApp {
     public static void newCircle() {
-            Input input = new Input();
+            input input = new input();
             Circle circle = new Circle(input.getDouble());
             System.out.println("The area of your circle is " + circle.getArea());
             System.out.println("The circumference of your circle is " + circle.getCircumference());
@@ -12,7 +12,7 @@ public class circleApp {
 
     }
     public static void main(String[] args) {
-        Input input = new Input();
+        input input = new input();
         int circles = 0;
         do {
             newCircle();

@@ -1,12 +1,12 @@
 package TheDoor;
 
-import util.Input;
+import util.input;
 
-public class DoorApp {
+public class doorApp {
 
 
     public static void main(String[] args) {
-        Input input = new Input();
+        input input = new input();
         Story story = new Story();
         System.out.println("Enter your name:\n");
         String name = input.getString();

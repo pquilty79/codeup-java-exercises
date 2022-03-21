@@ -1,6 +1,6 @@
 package Contacts;
 
-import util.Input;
+import util.input;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static java.lang.Integer.parseInt;
 
 public class ContactActions {
 
@@ -31,7 +30,7 @@ public class ContactActions {
     }
     //checked and works
     public static void getContactInfoFromUser() throws IOException {
-        Input input = new Input();
+        input input = new input();
         System.out.println("Enter the first name of the contact\n");
         try {
             String firstName = input.getString();
@@ -82,7 +81,7 @@ public class ContactActions {
             String filename = "contacts.txt";
             Path filepath = Paths.get(directory, filename);
             List<String> contactsList = Files.readAllLines(filepath);
-            Input input = new Input();
+            input input = new input();
             System.out.println("Enter the name of the contact you want to delete");
             String name = input.getString();
             List<String> newList = new ArrayList<>();
@@ -108,7 +107,7 @@ public class ContactActions {
             String filename = "contacts.txt";
             Path filepath = Paths.get(directory, filename);
             List<String> contactsList = Files.readAllLines(filepath);
-            Input input = new Input();
+            input input = new input();
             System.out.println("Search for a contact:");
             String name = input.getString();
             boolean finishedForLoop = true;
@@ -135,7 +134,7 @@ public class ContactActions {
         String filename = "contacts.txt";
         Path filepath = Paths.get(directory, filename);
         List<String> contactsList = Files.readAllLines(filepath);
-        Input input = new Input();
+        input input = new input();
         System.out.println("Enter the name of the contact:");
         String name = input.getString();
         List<String> newList = new ArrayList<>();
@@ -175,7 +174,7 @@ public class ContactActions {
 
 
     public static int contactMenu(){
-        Input input = new Input();
+        input input = new input();
         System.out.println("Welcome to your contacts manager\n");
         System.out.println("1. View contacts.\n" +
                 "2. Add a new contact.\n" +

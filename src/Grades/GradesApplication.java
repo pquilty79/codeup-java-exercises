@@ -1,6 +1,6 @@
 package Grades;
 
-import util.Input;
+import util.input;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -35,7 +35,7 @@ public class GradesApplication {
     }
 
     public static void askAboutStudents(HashMap<String, Students> students) {
-        Input input = new Input();
+        input input = new input();
         do {
             System.out.println("Here are the GitHub usernames of our students:\n");
             for (String key : students.keySet()) {

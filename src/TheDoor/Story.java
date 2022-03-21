@@ -1,11 +1,11 @@
 package TheDoor;
 
-import util.Input;
+import util.input;
 
 
 public class Story {
     public void introduction(Player player) {
-        Input input = new Input();
+        input input = new input();
         String introduction = "Your GPS tells you you have arrived at your new client's house for your appointment.\n " +
                 "The client, Ted Leviathans, contacted you last week regarding the sale of his late parent's house.\n " +
                 "After meeting Ted over Zoom, you scheduled a follow up for this morning at the property.\n " +
@@ -38,7 +38,7 @@ public class Story {
     }
 
     private static void restart(Player player) {
-        Input input = new Input();
+        input input = new input();
         String restart = "You awake on the basement floor at the foot of the staircase. You appear to be unharmed, as if nothing happened.\n";
         System.out.println(restart);
         while (input.yesNo(
@@ -62,7 +62,7 @@ public class Story {
     }
 
     private static void chapterOne(Player player) {
-        Input input = new Input();
+        input input = new input();
         String entrance = "The doorknob turns easily enough, but the door is so wide you have to wedge yourself around it just to squeeze\n" +
                 "between it and the wall. As soon as you on the other side, it slams shut, forcing you to stumble forward and fall flat.\n" +
                 "It is pitch black inside, except for the light of your cellphone on the ground in front of you.\n" +
@@ -84,7 +84,7 @@ public class Story {
 
 
     private static void chapterTwo(Player player) {
-        Input input = new Input();
+        input input = new input();
         System.out.println("Enter the number of your next action: 1) Move ahead 2) Check your pockets 3) Call out for help\n");
         int response = input.getInt(1, 3);
         if(response == 1) {
@@ -133,7 +133,7 @@ public class Story {
         }
     }
     private static void chapterThree(Player player) {
-        Input input = new Input();
+        input input = new input();
         System.out.println("You continue down the mysterious corridor. Around the next you see an elderly man sitting on a stool.\n" +
                 "There are chains around his ankles which attach to the cave wall. As you approach you are horrified to see\n" +
                 "that his eyes are pinned open and his hands have been removed. The stubs of his arms bare large stitches oozing \n" +
@@ -161,7 +161,7 @@ public class Story {
         }
     }
     private static void chapterThreePointFive(Player player) {
-        Input input = new Input();
+        input input = new input();
         System.out.println("Enter the number of your next action: 1) Ask about the master 2) Ask where you are 3) Ignore him and walk away\n" +
                 "4) Ask about the way out 5) Attack");
         int response = input.getInt(1, 5);
@@ -187,7 +187,7 @@ public class Story {
 
 
     private static void chapterFour(Player player) {
-        Input input = new Input();
+        input input = new input();
         Enemies enemy = Enemies.getRandomEnemy();
         assert enemy != null;
         System.out.printf("As you turn the next corner your get attacked by a %s\n", enemy.getName());

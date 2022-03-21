@@ -1,12 +1,12 @@
 package Movies;
-import util.Input;
+import util.input;
 
 import java.util.Arrays;
 
 import static Movies.MoviesArray.findAll;
 public class MoviesApplication {
     public static Movie[] addMovie(Movie[] array) {
-        Input input = new Input();
+        input input = new input();
         System.out.println("Enter the name of the new movie");
         String movieName = input.getString();
         System.out.println("Enter the category of the new movie");
@@ -27,7 +27,7 @@ public class MoviesApplication {
     }
 
     public static void displayMovies(Movie[] newArray) {
-        Input input = new Input();
+        input input = new input();
         System.out.println("What would you like to do?\n" +
                 "0 - exit\n" +
                 "1 - view all movies\n" +

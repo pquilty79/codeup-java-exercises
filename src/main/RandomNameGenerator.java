@@ -1,6 +1,4 @@
-import ObjectsExercises.Person;
-
-public class ServerNameGenerator {
+public class RandomNameGenerator {
     static String [] adjectives = {"short", "fat", "tall", "skinny", "old", "young", "red", "green", "blue", "gold"};
     static String [] nouns = {"girl", "boy", "man", "woman", "car", "horse", "dog", "cat", "bird", "aardvark"};
 

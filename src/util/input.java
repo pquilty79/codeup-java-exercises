@@ -2,9 +2,9 @@ package util;
 
 import java.util.Scanner;
 
-public class Input {
+public class input {
     private Scanner scanner;
-    public Input() {
+    public input() {
         this.scanner = new Scanner(System.in);
     }
     public void close() {

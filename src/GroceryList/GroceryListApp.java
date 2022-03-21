@@ -1,13 +1,13 @@
 package GroceryList;
 
-import util.Input;
+import util.input;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class GroceryListApp {
     public static void groceryList(ArrayList<Groceries> groceriesArrayList){
-        Input input = new Input();
+        input input = new input();
         while (input.yesNo("Would you like to add an item to the grocery list?\n")) {
                 addItemToList(groceriesArrayList);
             }
@@ -22,7 +22,7 @@ public class GroceryListApp {
             }
     }
     public static void addItemToList(ArrayList<Groceries> groceriesArrayList) {
-        Input input = new Input();
+        input input = new input();
         System.out.println("Enter an item:\n");
         String listItemName = input.getString();
         System.out.println("Pick a category:\n");
